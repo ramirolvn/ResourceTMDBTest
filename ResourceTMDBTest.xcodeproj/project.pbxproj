@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		99ADAE1F10429282FC1A41A6 /* Pods_ResourceTMDBTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B471F6F8CD65F5C55823D859 /* Pods_ResourceTMDBTest.framework */; };
-		E264BCDD21A36AE00093D719 /* DataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264BCDC21A36AE00093D719 /* DataServiceProtocol.swift */; };
 		E264BCE121A371670093D719 /* MockDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264BCE021A371670093D719 /* MockDataService.swift */; };
 		E26851512194D6B5005F0C04 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26851502194D6B5005F0C04 /* TableViewCell.swift */; };
 		E26851532194DBCE005F0C04 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26851522194DBCE005F0C04 /* Contact.swift */; };
@@ -21,6 +20,11 @@
 		E2D20FE9217FABC90035B9F5 /* NetworkApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2D20FE7217FABC90035B9F5 /* NetworkApp.xcdatamodeld */; };
 		E2D20FEB217FABCA0035B9F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2D20FEA217FABCA0035B9F5 /* Assets.xcassets */; };
 		E2D20FEE217FABCA0035B9F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D20FEC217FABCA0035B9F5 /* LaunchScreen.storyboard */; };
+		F1B50B752295ED630070D524 /* CustomAlertLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B50B732295ED630070D524 /* CustomAlertLoadingView.swift */; };
+		F1B50B792295EDB70070D524 /* CustomAlertLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1B50B782295EDB70070D524 /* CustomAlertLoadingView.xib */; };
+		F1FCC4AC2295E6D4002B2C29 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FCC4AB2295E6D4002B2C29 /* LoginViewController.swift */; };
+		F1FCC4AE2295E7C3002B2C29 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FCC4AD2295E7C3002B2C29 /* LoginViewModel.swift */; };
+		F1FCC4B52295EC2B002B2C29 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FCC4B42295EC2B002B2C29 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +40,6 @@
 /* Begin PBXFileReference section */
 		5B926F51CF52C9474E876EDC /* Pods-ResourceTMDBTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResourceTMDBTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResourceTMDBTest/Pods-ResourceTMDBTest.release.xcconfig"; sourceTree = "<group>"; };
 		B471F6F8CD65F5C55823D859 /* Pods_ResourceTMDBTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResourceTMDBTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E264BCDC21A36AE00093D719 /* DataServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceProtocol.swift; sourceTree = "<group>"; };
 		E264BCE021A371670093D719 /* MockDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataService.swift; sourceTree = "<group>"; };
 		E26851502194D6B5005F0C04 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		E26851522194DBCE005F0C04 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
@@ -53,6 +56,11 @@
 		E2D20FEA217FABCA0035B9F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2D20FED217FABCA0035B9F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2D20FEF217FABCA0035B9F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1B50B732295ED630070D524 /* CustomAlertLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertLoadingView.swift; sourceTree = "<group>"; };
+		F1B50B782295EDB70070D524 /* CustomAlertLoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAlertLoadingView.xib; sourceTree = "<group>"; };
+		F1FCC4AB2295E6D4002B2C29 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F1FCC4AD2295E7C3002B2C29 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		F1FCC4B42295EC2B002B2C29 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F2DCAEFE47DEBD6EC2A02E94 /* Pods-ResourceTMDBTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResourceTMDBTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ResourceTMDBTest/Pods-ResourceTMDBTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +103,7 @@
 		E268514B2194D644005F0C04 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F1B50B7A2295EDFB0070D524 /* CustomAlert */,
 				E268514F2194D692005F0C04 /* controller */,
 				E26851502194D6B5005F0C04 /* TableViewCell.swift */,
 			);
@@ -105,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				E26851542194E47D005F0C04 /* ContactsViewModel.swift */,
+				F1FCC4AD2295E7C3002B2C29 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -113,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				E26851562194E544005F0C04 /* DataService.swift */,
-				E264BCDC21A36AE00093D719 /* DataServiceProtocol.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -131,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				E2D20FE2217FABC90035B9F5 /* ViewController.swift */,
+				F1FCC4AB2295E6D4002B2C29 /* LoginViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -168,6 +178,7 @@
 		E2D20FDF217FABC90035B9F5 /* ResourceTMDBTest */ = {
 			isa = PBXGroup;
 			children = (
+				F1FCC4B32295EC12002B2C29 /* Extensions */,
 				E268514E2194D677005F0C04 /* Model */,
 				E268514C2194D663005F0C04 /* ViewModel */,
 				E268514B2194D644005F0C04 /* View */,
@@ -179,6 +190,23 @@
 				E2D20FE7217FABC90035B9F5 /* NetworkApp.xcdatamodeld */,
 			);
 			path = ResourceTMDBTest;
+			sourceTree = "<group>";
+		};
+		F1B50B7A2295EDFB0070D524 /* CustomAlert */ = {
+			isa = PBXGroup;
+			children = (
+				F1B50B732295ED630070D524 /* CustomAlertLoadingView.swift */,
+				F1B50B782295EDB70070D524 /* CustomAlertLoadingView.xib */,
+			);
+			path = CustomAlert;
+			sourceTree = "<group>";
+		};
+		F1FCC4B32295EC12002B2C29 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F1FCC4B42295EC2B002B2C29 /* Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +302,7 @@
 				E2D20FEE217FABCA0035B9F5 /* LaunchScreen.storyboard in Resources */,
 				E2D20FEB217FABCA0035B9F5 /* Assets.xcassets in Resources */,
 				E2D20FE6217FABC90035B9F5 /* Main.storyboard in Resources */,
+				F1B50B792295EDB70070D524 /* CustomAlertLoadingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,13 +363,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1FCC4AC2295E6D4002B2C29 /* LoginViewController.swift in Sources */,
 				E2D20FE3217FABC90035B9F5 /* ViewController.swift in Sources */,
-				E264BCDD21A36AE00093D719 /* DataServiceProtocol.swift in Sources */,
 				E26851572194E544005F0C04 /* DataService.swift in Sources */,
 				E26851552194E47D005F0C04 /* ContactsViewModel.swift in Sources */,
 				E26851512194D6B5005F0C04 /* TableViewCell.swift in Sources */,
+				F1FCC4B52295EC2B002B2C29 /* Extensions.swift in Sources */,
 				E26851532194DBCE005F0C04 /* Contact.swift in Sources */,
 				E2D20FE1217FABC90035B9F5 /* AppDelegate.swift in Sources */,
+				F1FCC4AE2295E7C3002B2C29 /* LoginViewModel.swift in Sources */,
+				F1B50B752295ED630070D524 /* CustomAlertLoadingView.swift in Sources */,
 				E2D20FE9217FABC90035B9F5 /* NetworkApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -545,7 +577,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vikram.ResourceTMDBTest;
+				PRODUCT_BUNDLE_IDENTIFIER = ramirolvn.ResourceTMDBTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -565,7 +597,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vikram.ResourceTMDBTest;
+				PRODUCT_BUNDLE_IDENTIFIER = ramirolvn.ResourceTMDBTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

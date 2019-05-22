@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  ResourceTMDBTest
 //
-//  Created by Vikram Gupta on 10/23/18.
-//  Copyright © 2018 Vikram Gupta. All rights reserved.
+//  Created by Ramiro Lima on 10/23/18.
+//  Copyright © 2018 Ramiro Lima. All rights reserved.
 //
 
 import UIKit

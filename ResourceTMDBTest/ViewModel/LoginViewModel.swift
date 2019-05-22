@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class ContactsViewModel {
+class LoginViewModel {
     private(set) public var error: String?
     private(set) public var contacts: [[String: AnyObject]]? {
         didSet {
@@ -22,7 +22,7 @@ class ContactsViewModel {
         self.dataService = dataService
     }
     
-    func fetchContacts() {
+    func loginUser(email: String, password: String ) {
         dataService.fetchContacts(completion: { (contacts, error) in
             if let error = error {
                 self.error = error

@@ -2,8 +2,8 @@
 //  ResourceTMDBTestTests.swift
 //  ResourceTMDBTestTests
 //
-//  Created by Vikram Gupta on 11/8/18.
-//  Copyright © 2018 Vikram Gupta. All rights reserved.
+//  Created by Ramiro Lima on 11/8/18.
+//  Copyright © 2018 Ramiro Lima. All rights reserved.
 //
 
 import XCTest

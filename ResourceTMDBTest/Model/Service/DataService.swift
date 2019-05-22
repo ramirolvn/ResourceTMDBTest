@@ -2,17 +2,19 @@
 //  DataService.swift
 //  ResourceTMDBTest
 //
-//  Created by Vikram Gupta on 11/8/18.
-//  Copyright © 2018 Vikram Gupta. All rights reserved.
+//  Created by Ramiro Lima on 11/8/18.
+//  Copyright © 2018 Ramiro Lima. All rights reserved.
 //
 
 import Alamofire
 import SwiftyJSON
 import Foundation
-class DataService: DataServiceProtocol {
+
+class DataService {
     static let shared = DataService()
+    private let mainURL = "https://api.themoviedb.org/3"
     private let contactsUrl = "https://api.androidhive.info/contacts/"
-        
+    
     func fetchContacts(completion: @escaping ([[String : AnyObject]]?, String?) -> ()) {
         Alamofire.request(contactsUrl)
             .responseJSON { (response) -> Void in
