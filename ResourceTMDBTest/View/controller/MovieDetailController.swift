@@ -34,4 +34,6 @@ class MovieDetailController: UIViewController, UITableViewDataSource {
         return cell
     }
     
+    
+    
 }

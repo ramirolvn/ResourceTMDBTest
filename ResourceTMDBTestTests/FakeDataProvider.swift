@@ -15,7 +15,7 @@ class FakeDataProvider: DataService {
         }
     }
     
-    //    func fetchMoviesFake(page: Int, completion: @escaping (Dictionary<String,Any>?, String?) -> ()) {
+    //    func fetchMoviesFake(page: Int, completion: @escaping ([Movie]?, String?) -> ()) {
     //        if page == 1{
     //            let fakeResult = [""]
     //            completion(fakeResult, nil)

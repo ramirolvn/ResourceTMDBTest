@@ -1,27 +1,30 @@
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var moviesTableView: UITableView!
     private var resultMovies: ResultMovies?
+    private var filtredMovies: [Movie]?
     var user: User!
     
     private var viewmodel = MoviesViewModel(dataService: DataService())
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Bem vindo \(self.user.username)"
+        self.navigationItem.title = "Welcome \(self.user.username)"
+        searchBar.delegate = self
         self.moviesTableView.dataSource = self
         self.moviesTableView.delegate = self
         fetchMovies()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return resultMovies?.movies.count ?? 0
+        return filtredMovies?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell") as? MovieCell, let movie = self.resultMovies?.movies[indexPath.row] {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell") as? MovieCell, let movie = self.filtredMovies?[indexPath.row] {
             cell.updateView(withMovie: movie)
             return cell
         } else {
@@ -30,7 +33,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let movie = self.resultMovies?.movies[indexPath.row]{
+        if let movie = self.filtredMovies?[indexPath.row]{
             self.loading()
             viewmodel.fetchMovie(movieID: movie.id)
             viewmodel.didFinishFetch = {
@@ -49,7 +52,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastRowIndex = tableView.numberOfRows(inSection: 0) - 1
         if indexPath.section == 0 && indexPath.row == lastRowIndex {
-            if self.resultMovies?.lastPage != self.resultMovies?.total_pages{
+            if self.resultMovies?.lastPage != self.resultMovies?.total_pages && self.filtredMovies?.count == self.resultMovies?.movies.count{
                 self.fetchMovies()
             }
         }
@@ -74,8 +77,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         viewmodel.didFinishFetch = {
             self.dismissLoading()
             self.resultMovies = self.viewmodel.resultMovies!
+            self.filtredMovies = Array(self.viewmodel.resultMovies!.movies)
             self.moviesTableView.reloadData()
         }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if let movies = self.resultMovies?.movies{
+            filtredMovies = searchText.isEmpty ?  Array(movies) :  Array(movies).filter({ $0.original_title.lowercased().contains(searchText.lowercased())})
+        }
+        moviesTableView.reloadData()
     }
     
 }

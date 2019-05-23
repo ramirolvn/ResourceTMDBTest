@@ -1,6 +1,6 @@
 import UIKit
 
-class LoginViewController: UIViewController{
+class LoginViewController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet weak var passwordTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
@@ -9,7 +9,15 @@ class LoginViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.passwordTxt.delegate = self
+        self.hideKeyboardWhenTappedAround()
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.loginAction(textField)
+        return true
+    }
+    
     
     @IBAction func loginAction(_ sender: Any) {
         self.loading()
