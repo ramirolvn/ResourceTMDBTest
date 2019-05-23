@@ -1,26 +1,23 @@
-//
-//  TableViewCell.swift
-//  ResourceTMDBTest
-//
-//  Created by Ramiro Lima on 11/8/18.
-//  Copyright © 2018 Ramiro Lima. All rights reserved.
-//
-
 import UIKit
+import SDWebImage
 
-class ContactsCell: UITableViewCell {
-
+class MovieCell: UITableViewCell {
+    
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var movieRate: UILabel!
+    @IBOutlet weak var moviePhoto: UIImageView!
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
-    func updateView(withContact contact: Contact) {
-        self.name.text = contact.name
-        self.email.text = contact.email
+    func updateView(withMovie movie: Movie) {
+        self.name.text = movie.original_title
+        self.movieRate.text = "\(movie.vote_average ?? 0.0)"
+        moviePhoto.sd_setShowActivityIndicatorView(true)
+        moviePhoto.sd_setIndicatorStyle(.gray)
+        moviePhoto.sd_setImage(with: URL(string: movie.poster_pathURL), placeholderImage:nil)
     }
 }

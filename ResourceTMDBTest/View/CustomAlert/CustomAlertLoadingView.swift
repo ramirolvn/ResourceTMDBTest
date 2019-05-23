@@ -1,11 +1,3 @@
-//
-//  CustomAlertLoadingView.swift
-//  Gestor Escolar 2019
-//
-//  Created by Ramiro Lima Vale Neto on 15/05/19.
-//  Copyright © 2019 Ramiro Lima Vale Neto. All rights reserved.
-//
-
 import UIKit
 
 class CustomAlertLoadingView: UIView {

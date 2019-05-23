@@ -8,6 +8,9 @@ target 'ResourceTMDBTest' do
   use_frameworks!
 
   # Pods for ResourceTMDBTest
-  pod 'Alamofire'
-  pod 'SwiftyJSON'
+  pod 'Alamofire', '~> 4.0'
+  pod 'SwiftyJSON', '~> 4.0'
+  pod 'SDWebImage', '~> 4.0'
+
+  
 end

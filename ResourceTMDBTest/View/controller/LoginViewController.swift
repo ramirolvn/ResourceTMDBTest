@@ -1,36 +1,31 @@
-//
-//  LoginViewController.swift
-//  ResourceTMDBTest
-//
-//  Created by Ramiro Lima Vale Neto on 22/05/19.
-//  Copyright © 2019 Vikram Gupta. All rights reserved.
-//
-
 import UIKit
 
-class LoginViewController: UIViewController, UITextFieldDelegate{
+class LoginViewController: UIViewController{
     
     @IBOutlet weak var passwordTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     
-    private var viewmodel = ContactsViewModel(dataService: DataService())
+    private var viewmodel = LoginViewModel(dataService: DataService())
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.emailTxt.delegate = self
-        self.passwordTxt.delegate = self
-    }
-    
-    func fetchContacts() {
-        viewmodel.fetchContacts()
-        viewmodel.didFinishFetch = {
-            //            self.contacts = self.viewmodel.contacts!
-        }
     }
     
     @IBAction func loginAction(_ sender: Any) {
-    }
-    @IBAction func registerAction(_ sender: Any) {
-        
+        self.loading(nil)
+        viewmodel.loginUser(username: self.emailTxt.text, password: self.passwordTxt.text)
+        viewmodel.didFinishReq = {
+            self.dismissLoading()
+            if let e = self.viewmodel.error{
+                self.presentAlertWithTitle(title: "Atenção", message: e, options: "Ok", completion: {_ in})
+            }else{
+                let u = self.viewmodel.user!
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                let mainNav = self.storyboard?.instantiateViewController(withIdentifier: "mainNav") as! UINavigationController
+                let mainVC = mainNav.viewControllers[0] as! ViewController
+                mainVC.user = u
+                appDelegate.window?.rootViewController = mainNav
+            }
+        }
     }
 }

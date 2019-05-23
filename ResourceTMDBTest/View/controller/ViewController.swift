@@ -1,48 +1,50 @@
-//
-//  ViewController.swift
-//  ResourceTMDBTest
-//
-//  Created by Ramiro Lima on 10/23/18.
-//  Copyright © 2018 Ramiro Lima. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet weak var contactsTableView: UITableView!
-    private var contacts = [[String: AnyObject]]()
     
-    private var viewmodel = ContactsViewModel(dataService: DataService())
+    @IBOutlet weak var moviesTableView: UITableView!
+    private var resultMovies: ResultMovies?
+    var user: User!
+    
+    private var viewmodel = MoviesViewModel(dataService: DataService())
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        contactsTableView.delegate = self
-        contactsTableView.dataSource = self
-        
-        fetchContacts()
+        self.navigationItem.title = "Bem vindo \(self.user.username)"
+        self.moviesTableView.dataSource = self
+        self.moviesTableView.delegate = self
+        fetchMovies()
     }
-
-    func fetchContacts() {
-        viewmodel.fetchContacts()
+    
+    private func fetchMovies() {
+        self.loading(nil)
+        let page = self.resultMovies?.lastPage ?? 0
+        viewmodel.fetchMovies(page: page + 1)
         viewmodel.didFinishFetch = {
-            self.contacts = self.viewmodel.contacts!
-            self.contactsTableView.reloadData()
+            self.dismissLoading()
+            self.resultMovies = self.viewmodel.resultMovies!
+            self.moviesTableView.reloadData()
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contacts.count
+        return resultMovies?.movies?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "contacts_cell") as? ContactsCell {
-            let row = contacts[indexPath.row]
-            let contact = Contact(name: row["name"] as! String, email: row["email"] as! String)
-            cell.updateView(withContact: contact)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell") as? MovieCell, let movie = self.resultMovies?.movies?[indexPath.row] {
+            cell.updateView(withMovie: movie)
             return cell
         } else {
-            return ContactsCell()
+            return MovieCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastSectionIndex = tableView.numberOfSections - 1
+        let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
+        if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
+            self.fetchMovies()
         }
     }
 }

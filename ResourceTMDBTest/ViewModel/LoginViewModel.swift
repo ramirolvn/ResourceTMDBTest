@@ -1,34 +1,35 @@
-//
-//  ContactsViewModel.swift
-//  ResourceTMDBTest
-//
-//  Created by Ramiro Lima on 11/8/18.
-//  Copyright © 2018 Ramiro Lima. All rights reserved.
-//
-
 import Foundation
 class LoginViewModel {
     private(set) public var error: String?
-    private(set) public var contacts: [[String: AnyObject]]? {
+    private(set) public var user: User? {
         didSet {
-            self.didFinishFetch?()
+            self.didFinishReq?()
         }
     }
     
     private var dataService: DataService
-    var didFinishFetch: (() -> ())?
+    var didFinishReq: (() -> ())?
     
     init(dataService: DataService) {
         self.dataService = dataService
     }
     
-    func loginUser(email: String, password: String ) {
-        dataService.fetchContacts(completion: { (contacts, error) in
-            if let error = error {
-                self.error = error
-                return
-            }
-            self.contacts = contacts!
-        })
+    func loginUser(username: String?, password: String?) {
+        if let u = username, let p = password, u.count > 0 , p.count > 0{
+            dataService.userLogin(username: u, password: p, completion: {
+                (user, error) in
+                if let user = user{
+                    self.error = nil
+                    self.user = user
+                }else{
+                    self.error = error!
+                    self.user = nil
+                    return
+                }
+            })
+        }else{
+            self.error = "Usuário ou senha inválidos!"
+            return
+        }
     }
 }
