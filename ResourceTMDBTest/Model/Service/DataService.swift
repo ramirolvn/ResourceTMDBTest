@@ -59,7 +59,8 @@ class DataService {
     
     
     func fetchMovies(page: Int, completion: @escaping (ResultMovies?, String?) -> ()) {
-        Alamofire.request(mainURL+"movie/upcoming?api_key=\(apiKey)&page=\(page)")
+        
+        Alamofire.SessionManager.default.request(mainURL+"movie/upcoming?api_key=\(apiKey)&page=\(page)")
             .responseJSON { (response) -> Void in
                 if let error = response.error {
                     completion(nil, error.localizedDescription)
@@ -71,6 +72,27 @@ class DataService {
                     }else{
                         completion(nil, "Erro ao carregar filmes!")
                     }
+                }else{
+                    completion(nil, "Erro ao carregar filmes!")
+                }
+        }
+    }
+    
+    func fetchSpecificMovie(movieID: Int, completion: @escaping (Movie?, String?) -> ()) {
+        Alamofire.request(mainURL+"movie/\(movieID)?api_key=\(apiKey)")
+            .responseJSON { (response) -> Void in
+                if let error = response.error {
+                    completion(nil, error.localizedDescription)
+                }
+                if let responseJson = response.result.value {
+                    let jsonObj = JSON(responseJson)
+                    if let movie =  Movie(movie: jsonObj){
+                        completion(movie, nil)
+                    }else{
+                        completion(nil, "Erro ao carregar filme!")
+                    }
+                }else{
+                    completion(nil, "Erro ao carregar filme!")
                 }
         }
     }

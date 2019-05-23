@@ -18,8 +18,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     private func fetchMovies() {
         self.loading(nil)
-        let page = self.resultMovies?.lastPage ?? 0
-        viewmodel.fetchMovies(page: page + 1)
+        viewmodel.fetchMovies(currentResultMovies: self.resultMovies)
         viewmodel.didFinishFetch = {
             self.dismissLoading()
             self.resultMovies = self.viewmodel.resultMovies!
@@ -40,11 +39,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let movie = self.resultMovies?.movies?[indexPath.row]{
+            self.loading("Carregando informações do filme")
+            viewmodel.fetchMovie(movieID: movie.id)
+            viewmodel.didFinishFetch = {
+                self.dismissLoading()
+                if let e = self.viewmodel.error{
+                    self.presentAlertWithTitle(title: "Atenção", message: e, options: "Ok", completion: {_ in})
+                }else if let movieDetail = self.storyboard?.instantiateViewController(withIdentifier: "movieDetail") as? MovieDetailController{
+                    movieDetail.movie = self.viewmodel.selectedMovie!
+                    self.navigationController?.pushViewController(movieDetail, animated: true)
+                }
+                
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let lastSectionIndex = tableView.numberOfSections - 1
-        let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
-        if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
-            self.fetchMovies()
+        let lastRowIndex = tableView.numberOfRows(inSection: 0) - 1
+        if indexPath.section == 0 && indexPath.row == lastRowIndex {
+            if self.resultMovies?.lastPage != self.resultMovies?.total_pages{
+                self.fetchMovies()
+            }
         }
     }
 }

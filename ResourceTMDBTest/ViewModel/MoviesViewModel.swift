@@ -6,6 +6,11 @@ class MoviesViewModel {
             self.didFinishFetch?()
         }
     }
+    private(set) public var selectedMovie: Movie? {
+        didSet {
+            self.didFinishFetch?()
+        }
+    }
     
     private var dataService: DataService
     var didFinishFetch: (() -> ())?
@@ -14,19 +19,39 @@ class MoviesViewModel {
         self.dataService = dataService
     }
     
-    func fetchMovies(page: Int) {
-        dataService.fetchMovies(page: page, completion: {
-            (result, error) in
+    func fetchMovies(currentResultMovies: ResultMovies?) {
+        let currentPage = currentResultMovies?.lastPage ?? 0
+        let nextPage = currentPage+1
+        if let maxPages = currentResultMovies?.total_pages, maxPages < nextPage{
+            self.error = nil
+            self.resultMovies = currentResultMovies!
+        }else{
+            dataService.fetchMovies(page: nextPage, completion: {
+                (result, error) in
+                if let e = error{
+                    self.error = e
+                    self.resultMovies = nil
+                }else{
+                    self.error = nil
+                    if nextPage == 1 {self.resultMovies = result! }else{
+                        //updateResult -- Depois fazer uma classe de manejo do model
+                        self.resultMovies = ResultMovies(resultAntigo: self.resultMovies!, resultAtual: result!)
+                    }
+                    
+                }
+            })
+        }
+    }
+    
+    func fetchMovie(movieID: Int) {
+        dataService.fetchSpecificMovie(movieID: movieID, completion: {
+            (movie, error) in
             if let e = error{
                 self.error = e
-                self.resultMovies = nil
+                self.selectedMovie = nil
             }else{
                 self.error = nil
-                if page == 1 {self.resultMovies = result! }else{
-                    //updateResult -- Depois fazer uma classe de manejo do model
-                    self.resultMovies = ResultMovies(resultAntigo: self.resultMovies!, resultAtual: result!)
-                }
-                
+                self.selectedMovie = movie!
             }
         })
     }

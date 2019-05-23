@@ -13,6 +13,15 @@ extension String {
         }
         return utcD
     }
+    
+    var formattedDate: String?{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        guard let myDate = dateFormatter.date(from: self) else{ return nil}
+        
+        dateFormatter.dateFormat = "dd/MM/YYYY"
+        return dateFormatter.string(from: myDate)
+    }
 }
 
 extension UIViewController {

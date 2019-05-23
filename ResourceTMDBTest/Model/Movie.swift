@@ -8,8 +8,9 @@ struct Movie {
     private(set) public var poster_pathURL: String = ""
     private(set) public var original_title: String = ""
     private(set) public var overview: String = ""
-    private(set) public var release_date: Date? = nil
     private(set) public var vote_average: Float!
+    private(set) public var genre: String? = ""
+    private(set) public var release_date: String? = nil
     
     init?(movie: JSON) {
         guard let id = movie["id"].int else {return nil}
@@ -27,5 +28,7 @@ struct Movie {
         self.original_title = original_title
         self.vote_average = vote_average
         self.overview = overview
+        self.genre = movie["genres"].array?[0]["name"].string
+        self.release_date = movie["release_date"].string
     }
 }
