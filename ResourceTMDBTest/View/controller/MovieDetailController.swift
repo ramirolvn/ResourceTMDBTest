@@ -9,28 +9,29 @@
 import UIKit
 import SDWebImage
 
-class MovieDetailController: UIViewController {
-    @IBOutlet weak var movieImg: UIImageView!
-    @IBOutlet weak var rateLbl: UILabel!
-    @IBOutlet weak var dateLbl: UILabel!
-    @IBOutlet weak var genreLbl: UILabel!
-    @IBOutlet weak var overviewLbl: UILabel!
+class MovieDetailController: UIViewController, UITableViewDataSource {
+    
+    @IBOutlet weak var movieDetailTable: UITableView!
     
     var movie: Movie!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = self.movie.title
-        self.rateLbl.text = "Nota: \(movie.vote_average ?? 0.0)"
-        self.genreLbl.text = "Gênero: \(movie.genre ?? "-")"
-        self.dateLbl.text = "Data: \(movie.release_date?.formattedDate ?? "-")"
-        
-        self.overviewLbl.text = movie.overview
-        
-        movieImg.sd_setShowActivityIndicatorView(true)
-        movieImg.sd_setIndicatorStyle(.gray)
-        movieImg.sd_setImage(with: URL(string: movie.poster_pathURL), placeholderImage:nil)
-        
+        self.movieDetailTable.dataSource = self
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = UITableViewCell()
+        if let detailMovieCell = self.movieDetailTable.dequeueReusableCell(withIdentifier: "movieDetail") as? MovieDetailCell{
+            detailMovieCell.updateView(withMovie: self.movie)
+            cell = detailMovieCell
+        }
+        return cell
     }
     
 }

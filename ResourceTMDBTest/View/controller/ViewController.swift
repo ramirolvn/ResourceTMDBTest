@@ -16,22 +16,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         fetchMovies()
     }
     
-    private func fetchMovies() {
-        self.loading(nil)
-        viewmodel.fetchMovies(currentResultMovies: self.resultMovies)
-        viewmodel.didFinishFetch = {
-            self.dismissLoading()
-            self.resultMovies = self.viewmodel.resultMovies!
-            self.moviesTableView.reloadData()
-        }
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return resultMovies?.movies?.count ?? 0
+        return resultMovies?.movies.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell") as? MovieCell, let movie = self.resultMovies?.movies?[indexPath.row] {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell") as? MovieCell, let movie = self.resultMovies?.movies[indexPath.row] {
             cell.updateView(withMovie: movie)
             return cell
         } else {
@@ -40,8 +30,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let movie = self.resultMovies?.movies?[indexPath.row]{
-            self.loading("Carregando informações do filme")
+        if let movie = self.resultMovies?.movies[indexPath.row]{
+            self.loading()
             viewmodel.fetchMovie(movieID: movie.id)
             viewmodel.didFinishFetch = {
                 self.dismissLoading()
@@ -64,4 +54,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
     }
+    
+    @IBAction func logOut(_ sender: Any) {
+        self.loading()
+        viewmodel.logout(currentUser: self.user)
+        self.dismissLoading()
+        if let e = self.viewmodel.error{
+            self.presentAlertWithTitle(title: "Atenção", message: e, options: "Ok", completion: {_ in})
+        }else{
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let mainNav = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "initialNav") as! UINavigationController
+            appDelegate.window?.rootViewController = mainNav
+        }
+    }
+    
+    private func fetchMovies() {
+        self.loading()
+        viewmodel.fetchMovies(currentResultMovies: self.resultMovies)
+        viewmodel.didFinishFetch = {
+            self.dismissLoading()
+            self.resultMovies = self.viewmodel.resultMovies!
+            self.moviesTableView.reloadData()
+        }
+    }
+    
 }

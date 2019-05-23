@@ -19,6 +19,7 @@ class DataService {
                 
                 if let responseJson = response.result.value {
                     let jsonObj = JSON(responseJson)
+                    
                     if let sucess = jsonObj["success"].bool, sucess, let token = Token(tokenJson: jsonObj) {
                         completion(token, nil)
                     }else{
@@ -59,8 +60,7 @@ class DataService {
     
     
     func fetchMovies(page: Int, completion: @escaping (ResultMovies?, String?) -> ()) {
-        
-        Alamofire.SessionManager.default.request(mainURL+"movie/upcoming?api_key=\(apiKey)&page=\(page)")
+        Alamofire.request(mainURL+"movie/upcoming?api_key=\(apiKey)&page=\(page)")
             .responseJSON { (response) -> Void in
                 if let error = response.error {
                     completion(nil, error.localizedDescription)

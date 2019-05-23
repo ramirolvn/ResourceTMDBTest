@@ -35,11 +35,10 @@ extension UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func loading(_ title: String?) {
+    func loading() {
         let nib = UINib(nibName: "CustomAlertLoadingView", bundle: nil)
         let customAlert = nib.instantiate(withOwner: self, options: nil).first as! CustomAlertLoadingView
         customAlert.tag = 12345
-        //        customAlert.titleAlertLabel.text = title
         let screen = UIScreen.main.bounds
         customAlert.center = CGPoint(x: screen.midX, y: screen.midY)
         DispatchQueue.main.async {

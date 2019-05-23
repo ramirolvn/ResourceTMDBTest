@@ -19,8 +19,14 @@ class LoginViewModel {
             dataService.userLogin(username: u, password: p, completion: {
                 (user, error) in
                 if let user = user{
-                    self.error = nil
-                    self.user = user
+                    let saveUser = UserDao.saveUser(user)
+                    if saveUser.0{
+                        self.error = nil
+                        self.user = user
+                    }else{
+                        self.error = saveUser.1!
+                        self.user = nil
+                    }
                 }else{
                     self.error = error!
                     self.user = nil

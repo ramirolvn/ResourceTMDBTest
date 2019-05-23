@@ -7,7 +7,7 @@ class User: Object {
     @objc dynamic var username: String = ""
     @objc dynamic var token: Token? = nil
     
-    required convenience init?(username: String, password: String, token: Token) {
+    required convenience init?(username: String, password: String, token: Token?) {
         self.init()
         self.username = username
         self.token = token

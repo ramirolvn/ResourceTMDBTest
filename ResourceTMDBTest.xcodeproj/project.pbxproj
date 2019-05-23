@@ -11,8 +11,8 @@
 		9908882E229629F60052F3DE /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9908882D229629F60052F3DE /* Movie.swift */; };
 		9908883022962ACA0052F3DE /* ResultMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9908882F22962ACA0052F3DE /* ResultMovies.swift */; };
 		990888322296315B0052F3DE /* MoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990888312296315B0052F3DE /* MoviesViewModel.swift */; };
-		E264BCE121A371670093D719 /* MockDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264BCE021A371670093D719 /* MockDataService.swift */; };
-		E26851512194D6B5005F0C04 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26851502194D6B5005F0C04 /* TableViewCell.swift */; };
+		E264BCE121A371670093D719 /* FakeDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264BCE021A371670093D719 /* FakeDataProvider.swift */; };
+		E26851512194D6B5005F0C04 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26851502194D6B5005F0C04 /* MovieCell.swift */; };
 		E26851572194E544005F0C04 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26851562194E544005F0C04 /* DataService.swift */; };
 		E268515F2194EDB2005F0C04 /* ResourceTMDBTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268515E2194EDB2005F0C04 /* ResourceTMDBTestTests.swift */; };
 		E2D20FE1217FABC90035B9F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D20FE0217FABC90035B9F5 /* AppDelegate.swift */; };
@@ -20,6 +20,7 @@
 		E2D20FE6217FABC90035B9F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D20FE4217FABC90035B9F5 /* Main.storyboard */; };
 		E2D20FEB217FABCA0035B9F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2D20FEA217FABCA0035B9F5 /* Assets.xcassets */; };
 		E2D20FEE217FABCA0035B9F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D20FEC217FABCA0035B9F5 /* LaunchScreen.storyboard */; };
+		F172DFDE22972F6C00DEEDA7 /* Pods_ResourceTMDBTest.framework in Resources */ = {isa = PBXBuildFile; fileRef = F1EAD5EB2296C20C002AAFEC /* Pods_ResourceTMDBTest.framework */; };
 		F1B50B752295ED630070D524 /* CustomAlertLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B50B732295ED630070D524 /* CustomAlertLoadingView.swift */; };
 		F1B50B792295EDB70070D524 /* CustomAlertLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1B50B782295EDB70070D524 /* CustomAlertLoadingView.xib */; };
 		F1D4A9362296BADB00EB2245 /* MovieDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D4A9352296BADB00EB2245 /* MovieDetailController.swift */; };
@@ -27,6 +28,8 @@
 		F1EAD5F02296D7EA002AAFEC /* UserDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EAD5EE2296D7EA002AAFEC /* UserDao.swift */; };
 		F1EAD5F32296DA8C002AAFEC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EAD5F12296DA8B002AAFEC /* User.swift */; };
 		F1EAD5F62296DD0F002AAFEC /* Realm+CascadeDeleting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EAD5F52296DD0F002AAFEC /* Realm+CascadeDeleting.swift */; };
+		F1EAD5FA229707FE002AAFEC /* ResultMoviesDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EAD5F9229707FE002AAFEC /* ResultMoviesDao.swift */; };
+		F1EAD5FD22970DC5002AAFEC /* MovieDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EAD5FC22970DC5002AAFEC /* MovieDetailCell.swift */; };
 		F1FCC4AC2295E6D4002B2C29 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FCC4AB2295E6D4002B2C29 /* LoginViewController.swift */; };
 		F1FCC4AE2295E7C3002B2C29 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FCC4AD2295E7C3002B2C29 /* LoginViewModel.swift */; };
 		F1FCC4B52295EC2B002B2C29 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FCC4B42295EC2B002B2C29 /* Extensions.swift */; };
@@ -47,8 +50,8 @@
 		9908882D229629F60052F3DE /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		9908882F22962ACA0052F3DE /* ResultMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultMovies.swift; sourceTree = "<group>"; };
 		990888312296315B0052F3DE /* MoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewModel.swift; sourceTree = "<group>"; };
-		E264BCE021A371670093D719 /* MockDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataService.swift; sourceTree = "<group>"; };
-		E26851502194D6B5005F0C04 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		E264BCE021A371670093D719 /* FakeDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataProvider.swift; sourceTree = "<group>"; };
+		E26851502194D6B5005F0C04 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		E26851562194E544005F0C04 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		E268515C2194EDB2005F0C04 /* ResourceTMDBTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ResourceTMDBTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E268515E2194EDB2005F0C04 /* ResourceTMDBTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceTMDBTestTests.swift; sourceTree = "<group>"; };
@@ -68,6 +71,8 @@
 		F1EAD5EE2296D7EA002AAFEC /* UserDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDao.swift; sourceTree = "<group>"; };
 		F1EAD5F12296DA8B002AAFEC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F1EAD5F52296DD0F002AAFEC /* Realm+CascadeDeleting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+CascadeDeleting.swift"; sourceTree = "<group>"; };
+		F1EAD5F9229707FE002AAFEC /* ResultMoviesDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultMoviesDao.swift; sourceTree = "<group>"; };
+		F1EAD5FC22970DC5002AAFEC /* MovieDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailCell.swift; sourceTree = "<group>"; };
 		F1F4979CD766505A1519C09A /* Pods-ResourceTMDBTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResourceTMDBTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ResourceTMDBTest/Pods-ResourceTMDBTest.debug.xcconfig"; sourceTree = "<group>"; };
 		F1FCC4AB2295E6D4002B2C29 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F1FCC4AD2295E7C3002B2C29 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -115,7 +120,7 @@
 			children = (
 				F1B50B7A2295EDFB0070D524 /* CustomAlert */,
 				E268514F2194D692005F0C04 /* controller */,
-				E26851502194D6B5005F0C04 /* TableViewCell.swift */,
+				F1EAD5FB22970CDF002AAFEC /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -141,9 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				F1EAD5F72296DD58002AAFEC /* User */,
+				F1EAD5F8229707C2002AAFEC /* ResultMovies */,
 				E268514D2194D66F005F0C04 /* Service */,
-				9908882D229629F60052F3DE /* Movie.swift */,
-				9908882F22962ACA0052F3DE /* ResultMovies.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -161,9 +165,9 @@
 		E268515D2194EDB2005F0C04 /* ResourceTMDBTestTests */ = {
 			isa = PBXGroup;
 			children = (
+				E264BCE021A371670093D719 /* FakeDataProvider.swift */,
 				E268515E2194EDB2005F0C04 /* ResourceTMDBTestTests.swift */,
 				E26851602194EDB2005F0C04 /* Info.plist */,
-				E264BCE021A371670093D719 /* MockDataService.swift */,
 			);
 			path = ResourceTMDBTestTests;
 			sourceTree = "<group>";
@@ -221,6 +225,25 @@
 				F1EAD5EE2296D7EA002AAFEC /* UserDao.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		F1EAD5F8229707C2002AAFEC /* ResultMovies */ = {
+			isa = PBXGroup;
+			children = (
+				9908882D229629F60052F3DE /* Movie.swift */,
+				9908882F22962ACA0052F3DE /* ResultMovies.swift */,
+				F1EAD5F9229707FE002AAFEC /* ResultMoviesDao.swift */,
+			);
+			path = ResultMovies;
+			sourceTree = "<group>";
+		};
+		F1EAD5FB22970CDF002AAFEC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E26851502194D6B5005F0C04 /* MovieCell.swift */,
+				F1EAD5FC22970DC5002AAFEC /* MovieDetailCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		F1FCC4B32295EC12002B2C29 /* Extensions */ = {
@@ -315,6 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F172DFDE22972F6C00DEEDA7 /* Pods_ResourceTMDBTest.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,7 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E268515F2194EDB2005F0C04 /* ResourceTMDBTestTests.swift in Sources */,
-				E264BCE121A371670093D719 /* MockDataService.swift in Sources */,
+				E264BCE121A371670093D719 /* FakeDataProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,12 +430,14 @@
 				F1D4A9362296BADB00EB2245 /* MovieDetailController.swift in Sources */,
 				9908882A229609020052F3DE /* Token.swift in Sources */,
 				F1EAD5F62296DD0F002AAFEC /* Realm+CascadeDeleting.swift in Sources */,
-				E26851512194D6B5005F0C04 /* TableViewCell.swift in Sources */,
+				E26851512194D6B5005F0C04 /* MovieCell.swift in Sources */,
+				F1EAD5FD22970DC5002AAFEC /* MovieDetailCell.swift in Sources */,
 				F1FCC4B52295EC2B002B2C29 /* Extensions.swift in Sources */,
 				E2D20FE1217FABC90035B9F5 /* AppDelegate.swift in Sources */,
 				F1FCC4AE2295E7C3002B2C29 /* LoginViewModel.swift in Sources */,
 				F1B50B752295ED630070D524 /* CustomAlertLoadingView.swift in Sources */,
 				9908883022962ACA0052F3DE /* ResultMovies.swift in Sources */,
+				F1EAD5FA229707FE002AAFEC /* ResultMoviesDao.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +476,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 378FAUD65F;
 				INFOPLIST_FILE = ResourceTMDBTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -472,6 +499,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 378FAUD65F;
 				INFOPLIST_FILE = ResourceTMDBTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (

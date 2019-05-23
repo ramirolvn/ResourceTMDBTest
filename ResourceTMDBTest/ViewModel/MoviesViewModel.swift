@@ -22,25 +22,21 @@ class MoviesViewModel {
     func fetchMovies(currentResultMovies: ResultMovies?) {
         let currentPage = currentResultMovies?.lastPage ?? 0
         let nextPage = currentPage+1
-        if let maxPages = currentResultMovies?.total_pages, maxPages < nextPage{
-            self.error = nil
-            self.resultMovies = currentResultMovies!
-        }else{
-            dataService.fetchMovies(page: nextPage, completion: {
-                (result, error) in
-                if let e = error{
-                    self.error = e
-                    self.resultMovies = nil
-                }else{
-                    self.error = nil
-                    if nextPage == 1 {self.resultMovies = result! }else{
-                        //updateResult -- Depois fazer uma classe de manejo do model
-                        self.resultMovies = ResultMovies(resultAntigo: self.resultMovies!, resultAtual: result!)
-                    }
+        dataService.fetchMovies(page: nextPage, completion: {
+            (result, error) in
+            if let e = error{
+                self.error = e
+                self.resultMovies = nil
+            }else{
+                if nextPage == 1 {self.resultMovies = result! }else{
+                    let updateResult = ResultMoviesDao.updateResult(self.resultMovies!, newResult: result!)
+                    self.error = updateResult.1 != nil ? updateResult.1! : nil
+                    self.resultMovies = updateResult.0 != nil ? updateResult.0! : nil
                     
                 }
-            })
-        }
+                
+            }
+        })
     }
     
     func fetchMovie(movieID: Int) {
@@ -54,5 +50,12 @@ class MoviesViewModel {
                 self.selectedMovie = movie!
             }
         })
+    }
+    
+    func logout(currentUser: User) {
+        let logout = UserDao.deleteUser(currentUser.id)
+        if let e = logout.1{
+            self.error = e
+        }
     }
 }

@@ -1,54 +1,44 @@
-//
-//  ResourceTMDBTestTests.swift
-//  ResourceTMDBTestTests
-//
-//  Created by Ramiro Lima on 11/8/18.
-//  Copyright © 2018 Ramiro Lima. All rights reserved.
-//
-
 import XCTest
-import Foundation
+
 @testable import ResourceTMDBTest
 
-class ResourceTMDBTestTests: XCTestCase {
-    var mockDataService: MockDataService!
-    var sut: ContactsViewModel!
+// MARK: tests fake data
 
+class LoginViewModelTest: XCTestCase {
+    
+    // MARK: Test subject
+    var viewModel: LoginViewModel?
+    private var fakeDataService: FakeDataProvider!
+    
     override func setUp() {
         super.setUp()
-        mockDataService = MockDataService()
-        sut = ContactsViewModel(dataService: mockDataService)
+        self.fakeDataService = FakeDataProvider()
+        self.viewModel = LoginViewModel(dataService: fakeDataService)
+        
     }
-
+    
     override func tearDown() {
-        sut = nil
-        mockDataService = nil
+        // Put teardown code here. This method is called after the invocation of each test method in the class
+        self.viewModel = nil
         super.tearDown()
     }
-
-    func testFetchContactsCalled() {
-        sut.fetchContacts()
-        
-        XCTAssert(mockDataService.isFetchContactsCalled)
+    
+    
+    func testLoginSuccess() {
+        fakeDataService.userLoginTest(username: "ramiro", password: "password", completion: {
+            (fakeUser, error)
+            in
+            XCTAssertEqual(fakeUser?.username, "ramiro")
+        })
     }
     
-    func testFetchContactsFail() {
-        let error = "Failed to fetch contacts"
-       
-        sut.fetchContacts()
-        
-        mockDataService.fetchFail(error: error)
-        
-        XCTAssertEqual(sut.error, error)
+    func testLoginError() {
+        fakeDataService.userLoginTest(username: "ramiro", password: "password1234", completion: {
+            (fakeUser, error)
+            in
+            XCTAssertEqual(fakeUser?.username, "testeUser")
+            
+        })
     }
     
-    func testFetchContactsSuccess() {
-        mockDataService.contacts = [["name": "John", "email": "john@xyz.com"], ["name": "Tony", "email": "tony@xyz.com"]] as [[String : AnyObject]]
-        
-        sut.fetchContacts()
-        
-        mockDataService.fetchSuccess()
-        
-        XCTAssertEqual(sut.contacts?.count, mockDataService.contacts.count)
-    }
 }

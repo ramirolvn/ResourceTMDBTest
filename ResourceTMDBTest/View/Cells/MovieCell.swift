@@ -15,7 +15,7 @@ class MovieCell: UITableViewCell {
     
     func updateView(withMovie movie: Movie) {
         self.name.text = movie.original_title
-        self.movieRate.text = "\(movie.vote_average ?? 0.0)"
+        self.movieRate.text = "\(movie.vote_average )"
         moviePhoto.sd_setShowActivityIndicatorView(true)
         moviePhoto.sd_setIndicatorStyle(.gray)
         moviePhoto.sd_setImage(with: URL(string: movie.poster_pathURL), placeholderImage:nil)
