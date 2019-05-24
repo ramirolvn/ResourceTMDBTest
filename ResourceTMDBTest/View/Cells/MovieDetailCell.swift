@@ -26,7 +26,7 @@ class MovieDetailCell: UITableViewCell {
         self.genreLbl.text = "Genre: \(movie.genre ?? "-")"
         
         
-        self.overviewLbl.text = movie.overview
+        self.overviewLbl.text = "Original Title: \(movie.original_title) \n\(movie.overview)"
         
         movieImg.sd_setShowActivityIndicatorView(true)
         movieImg.sd_setIndicatorStyle(.gray)

@@ -84,7 +84,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if let movies = self.resultMovies?.movies{
-            filtredMovies = searchText.isEmpty ?  Array(movies) :  Array(movies).filter({ $0.original_title.lowercased().contains(searchText.lowercased())})
+            filtredMovies = searchText.isEmpty ?  Array(movies) :  Array(movies).filter({ $0.title.lowercased().contains(searchText.lowercased())})
         }
         moviesTableView.reloadData()
     }

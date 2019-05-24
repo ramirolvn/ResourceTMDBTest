@@ -14,7 +14,7 @@ class MovieCell: UITableViewCell {
     }
     
     func updateView(withMovie movie: Movie) {
-        self.name.text = movie.original_title
+        self.name.text = movie.title
         self.movieRate.text = "\(movie.vote_average)" == "0.0" ? "-" : "\(movie.vote_average)"
         moviePhoto.sd_setShowActivityIndicatorView(true)
         moviePhoto.sd_setIndicatorStyle(.gray)
