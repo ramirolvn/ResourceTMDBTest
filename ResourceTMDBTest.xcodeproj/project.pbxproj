@@ -20,7 +20,6 @@
 		E2D20FE6217FABC90035B9F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D20FE4217FABC90035B9F5 /* Main.storyboard */; };
 		E2D20FEB217FABCA0035B9F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2D20FEA217FABCA0035B9F5 /* Assets.xcassets */; };
 		E2D20FEE217FABCA0035B9F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D20FEC217FABCA0035B9F5 /* LaunchScreen.storyboard */; };
-		F172DFDE22972F6C00DEEDA7 /* Pods_ResourceTMDBTest.framework in Resources */ = {isa = PBXBuildFile; fileRef = F1EAD5EB2296C20C002AAFEC /* Pods_ResourceTMDBTest.framework */; };
 		F1B50B752295ED630070D524 /* CustomAlertLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B50B732295ED630070D524 /* CustomAlertLoadingView.swift */; };
 		F1B50B792295EDB70070D524 /* CustomAlertLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1B50B782295EDB70070D524 /* CustomAlertLoadingView.xib */; };
 		F1D4A9362296BADB00EB2245 /* MovieDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D4A9352296BADB00EB2245 /* MovieDetailController.swift */; };
@@ -338,7 +337,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F172DFDE22972F6C00DEEDA7 /* Pods_ResourceTMDBTest.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,11 +360,13 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ResourceTMDBTest/Pods-ResourceTMDBTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ResourceTMDBTest/Pods-ResourceTMDBTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
